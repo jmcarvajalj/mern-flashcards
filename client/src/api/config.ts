@@ -1,1 +1,1 @@
-export const API_URL: string = "https://mern-flashcards-api.vercel.app"
+export const API_URL: string = "http://localhost:5000"
