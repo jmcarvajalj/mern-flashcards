@@ -38,16 +38,12 @@ export default function Deck() {
     }, [deckId])
 
     return (
-        <div className="Deck">
-            <h1>{deck?.title}</h1>
-            <div className="cards">
-                {cards.map((card, index) => (
-                    <li key={index}>
-                        <button onClick={() => handleDeleteCard(index)}>X</button>
-                        {card}
-                    </li>
-                ))}
+        <div className="Deck">            
+            <div className="header">
+                <h2>Flashcard App</h2>
+                <h5>Made by Jose Carvajal</h5>
             </div>
+            <h1>{deck?.title}</h1>
             <form onSubmit={handleCreateDeck}>
                 <label htmlFor="card-text">Card Text</label>
                 <input
@@ -60,6 +56,14 @@ export default function Deck() {
                 />
                 <button>Create Card</button>
             </form>
+            <div className="cards">
+                {cards.map((card, index) => (
+                    <li key={index}>
+                        <button onClick={() => handleDeleteCard(index)}>X</button>
+                        {card}
+                    </li>
+                ))}
+            </div>
         </div>
     )
 }

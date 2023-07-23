@@ -6,7 +6,7 @@ import { createDeck } from './api/createDeck'
 import { TDeck } from './types/TDeck'
 import './App.css'
 
-function App() {
+export default function App() {
 
   const [title, setTitle] = useState("")
   const [decks, setDecks] = useState<TDeck[]>([])
@@ -34,17 +34,13 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Your Decks</h1>
-      <div className="decks">
-        {decks.map((deck) => (
-          <li key={deck._id}>
-            <button onClick={() => handleDeleteDeck(deck._id)}>X</button>
-            <Link to={`decks/${deck._id}`}>{deck.title}</Link>
-          </li>
-        ))}
+      <div className="header">
+        <h2>Flashcard App</h2>
+        <h5>Made by Jose Carvajal</h5>
       </div>
+      <h1>Your Decks</h1>
       <form onSubmit={handleCreateDeck}>
-        <label htmlFor="deck-title">Deck Title</label>
+        <label htmlFor="deck-title">Deck Title: </label>
         <input
           type="text"
           id="deck-title"
@@ -53,10 +49,20 @@ function App() {
             setTitle(e.target.value)
           }}
         />
-        <button>Create Deck</button>
+        <button className="create-deck">Create Deck</button>
       </form>
+      <div className="decks">
+        {decks.map((deck) => (
+          <div key={deck._id} className="container">
+            <Link to={`decks/${deck._id}`}>
+              <div className='item'>
+                {deck.title}
+              </div>
+            </Link>
+            <button className="delete-button" onClick={() => handleDeleteDeck(deck._id)}>X</button>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
-
-export default App
