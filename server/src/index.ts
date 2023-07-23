@@ -13,7 +13,7 @@ import { deleteCardOnDeckController } from "./controllers/deleteCardOnDeckContro
 const PORT = 5000
 const app = express()
 
-app.use(cors({ origin: "*" }))
+app.use(cors({ origin: ["https://mern-flashcards-api.vercel.app/"] }))
 app.use(express.json())
 
 app.get("/decks", getDecksController)
