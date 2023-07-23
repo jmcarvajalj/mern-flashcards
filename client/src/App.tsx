@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react'
 import { Link } from "react-router-dom"
-import './App.css'
 import { deleteDeck } from './api/deleteDeck'
-import { TDeck, getDecks } from './api/getDecks'
+import { getDecks } from './api/getDecks'
 import { createDeck } from './api/createDeck'
+import { TDeck } from './types/TDeck'
+import './App.css'
 
 function App() {
 

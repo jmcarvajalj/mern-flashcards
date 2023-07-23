@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom"
-import { TDeck } from './api/getDecks'
 import { createCard } from './api/createCard'
 import { getDeck } from './api/getDeck'
 import { deleteCard } from './api/deleteCard'
+import { TDeck } from './types/TDeck'
 import './Deck.css'
 
 export default function Deck() {
