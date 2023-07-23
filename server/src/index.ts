@@ -16,17 +16,17 @@ const app = express()
 app.use(cors({ origin: "*" }))
 app.use(express.json())
 
-app.get("/decks", getDecksController)
+app.get("https://mern-flashcards-k8rkw2lkn-jmcarvajalj.vercel.app/decks", getDecksController)
 
-app.post("/decks", createDeckController)
+app.post("https://mern-flashcards-k8rkw2lkn-jmcarvajalj.vercel.app/decks", createDeckController)
 
-app.delete("/decks/:deckId", deleteDeckController)
+app.delete("https://mern-flashcards-k8rkw2lkn-jmcarvajalj.vercel.app/decks/:deckId", deleteDeckController)
 
-app.get("/decks/:deckId", getDeckController)
+app.get("https://mern-flashcards-k8rkw2lkn-jmcarvajalj.vercel.app/decks/:deckId", getDeckController)
 
-app.post("/decks/:deckId/cards", createCardForDeckController)
+app.post("https://mern-flashcards-k8rkw2lkn-jmcarvajalj.vercel.app/:deckId/cards", createCardForDeckController)
 
-app.delete("/decks/:deckId/cards/:index", deleteCardOnDeckController)
+app.delete("https://mern-flashcards-k8rkw2lkn-jmcarvajalj.vercel.app/decks/:deckId/cards/:index", deleteCardOnDeckController)
 
 mongoose.connect(process.env.MONGO_URL!).then(() => {
     console.log(`Listening in port ${PORT}`);
