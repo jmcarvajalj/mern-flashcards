@@ -18,10 +18,11 @@
 
 .cards {
     display: grid;
-    width: 600px;
+    width: 900px;
+    height: 120px;
     margin: 0 auto;
     grid-gap: 10px;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     color: black;
 }
 
@@ -32,15 +33,75 @@
     align-items: center;
     height: 120px;
     background: white;
-    border: 1px solid white;
-    border-radius: 10px;
+    border-radius: 20px;
+    border: none;
     padding: 12px;
     padding-top: 30px;
 }
 
-.cards li button {
+.delete-button {
     position: absolute;
-    font-size: 10px;
-    top: 5px;
-    right: 5px;
+    font-size: 20px;
+    height: 30px;
+    width: 30px;
+    top: 0px;
+    right: 0px;
+    border: none;
+    border-radius: 0 20px 0 20px;
+    background-color: white;
+    border: none;
+}
+
+.delete-button:hover {
+    background-color: #DC2626;
+    color: white;
+}
+
+.delete-button:active {
+    box-shadow: inset -2px -2px 3px rgba(0, 0, 0, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.create-card {
+    height: 30px;
+    width: 100px;
+    border: 0;
+    border-radius: 8px;
+    background: #047857;
+    color: white;
+    font-weight: bold;
+}
+
+.create-card:hover {
+    background: #059669;
+    color: white;
+}
+
+.create-card:active {
+    box-shadow: inset -2px -2px 3px rgba(0, 0, 0, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.go-back {
+    height: 30px;
+    width: 100px;
+    border: 0;
+    border-radius: 8px;
+    background: #0369A1;
+    color: white;
+    font-weight: bold;
+}
+
+.go-back:hover {
+    background: #0891B2;
+    color: white;
+}
+
+.go-back:active {
+    box-shadow: inset -2px -2px 3px rgba(0, 0, 0, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+.container-deck {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: start;
 }

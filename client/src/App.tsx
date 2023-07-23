@@ -44,6 +44,7 @@ export default function App() {
         <input
           type="text"
           id="deck-title"
+          autoFocus
           value={title}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
             setTitle(e.target.value)
@@ -59,7 +60,7 @@ export default function App() {
                 {deck.title}
               </div>
             </Link>
-            <button className="delete-button" onClick={() => handleDeleteDeck(deck._id)}>X</button>
+            <button className="delete-button" onClick={() => handleDeleteDeck(deck._id)}>&times;</button>
           </div>
         ))}
       </div>

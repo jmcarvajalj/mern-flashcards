@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useParams } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 import { createCard } from './api/createCard'
 import { getDeck } from './api/getDeck'
 import { deleteCard } from './api/deleteCard'
@@ -12,6 +12,7 @@ export default function Deck() {
     const [text, setText] = useState("")
     const { deckId } = useParams()
     const [cards, setCards] = useState<string[]>([])
+    const navigate = useNavigate()
 
 
     async function handleCreateDeck(e: React.FormEvent) {
@@ -38,28 +39,32 @@ export default function Deck() {
     }, [deckId])
 
     return (
-        <div className="Deck">            
+        <div className="Deck">
             <div className="header">
                 <h2>Flashcard App</h2>
                 <h5>Made by Jose Carvajal</h5>
             </div>
             <h1>{deck?.title}</h1>
-            <form onSubmit={handleCreateDeck}>
-                <label htmlFor="card-text">Card Text</label>
-                <input
-                    type="text"
-                    id="card-text"
-                    value={text}
-                    onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                        setText(e.target.value)
-                    }}
-                />
-                <button>Create Card</button>
-            </form>
+            <div className="container-deck">
+                <form onSubmit={handleCreateDeck}>
+                    <label htmlFor="card-text">Card Text: </label>
+                    <input
+                        type="text"
+                        id="card-text"
+                        autoFocus
+                        value={text}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                            setText(e.target.value)
+                        }}
+                    />
+                    <button className="create-card">Create Card</button>
+                </form>
+                <button onClick={() => navigate(-1)} className="go-back">Go Back</button>
+            </div>
             <div className="cards">
                 {cards.map((card, index) => (
                     <li key={index}>
-                        <button onClick={() => handleDeleteCard(index)}>X</button>
+                        <button className="delete-button" onClick={() => handleDeleteCard(index)}>&times;</button>
                         {card}
                     </li>
                 ))}
