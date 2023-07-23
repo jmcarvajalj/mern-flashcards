@@ -13,20 +13,20 @@ import { deleteCardOnDeckController } from "./controllers/deleteCardOnDeckContro
 const PORT = 5000
 const app = express()
 
-app.use(cors({ origin: "*" }))
+app.use(cors({ origin: "https://mern-flashcards-api.vercel.app" }))
 app.use(express.json())
 
-app.get("https://mern-flashcards-k8rkw2lkn-jmcarvajalj.vercel.app/decks", getDecksController)
+app.get("/decks", getDecksController)
 
-app.post("https://mern-flashcards-k8rkw2lkn-jmcarvajalj.vercel.app/decks", createDeckController)
+app.post("/decks", createDeckController)
 
-app.delete("https://mern-flashcards-k8rkw2lkn-jmcarvajalj.vercel.app/decks/:deckId", deleteDeckController)
+app.delete("/decks/:deckId", deleteDeckController)
 
-app.get("https://mern-flashcards-k8rkw2lkn-jmcarvajalj.vercel.app/decks/:deckId", getDeckController)
+app.get("/decks/:deckId", getDeckController)
 
-app.post("https://mern-flashcards-k8rkw2lkn-jmcarvajalj.vercel.app/:deckId/cards", createCardForDeckController)
+app.post("/decks/:deckId/cards", createCardForDeckController)
 
-app.delete("https://mern-flashcards-k8rkw2lkn-jmcarvajalj.vercel.app/decks/:deckId/cards/:index", deleteCardOnDeckController)
+app.delete("/decks/:deckId/cards/:index", deleteCardOnDeckController)
 
 mongoose.connect(process.env.MONGO_URL!).then(() => {
     console.log(`Listening in port ${PORT}`);

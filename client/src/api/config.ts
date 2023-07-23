@@ -1,1 +1,1 @@
-export const API_URL: string = "https://mern-flashcards-k8rkw2lkn-jmcarvajalj.vercel.app"
+export const API_URL: string = "https://mern-flashcards-api.vercel.app"
